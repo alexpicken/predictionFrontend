@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CanWeBeatTheDragon</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" href="img/callum-the-dragon-image.webp" type="image/x-icon">
+</head>
+
+<body onload="loadFunction()">
+  <div class="container">
+    <h1 class="headin">Alex Table</h1>
+    <h1 class="headin">Real Table</h1>
+    <h1 class="headin">Hugo Table</h1>
+  </div>
+  <div class="container">
+    <table id="alexTable">
+      <thead>
+        <tr class="col">
+          <th>Position</th>
+          <th>Team</th>
+          <th>Difference</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+
+    <table id="realTable">
+      <thead>
+        <tr class="col">
+          <th>Position</th>
+          <th>Team</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Rows will be added here -->
+      </tbody>
+    </table>
+
+    <table id="hugoTable">
+      <thead>
+        <tr class="col">
+          <th>Position</th>
+          <th>Team</th>
+          <th>Difference</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+  <div class="container">
+    <h1 class="headin" id="alexSum"></h1>
+    <h1 class="headin"></h1>
+    <h1 class="headin" id="hugoSum"></h1>
+  </div>
+  <script>
+
+    const alexData = [
+      "Liverpool",
+      "Manchester City",
+      "Arsenal",
+      "Manchester United",
+      "Chelsea",
+      "Aston Villa",
+      "Newcastle United",
+      "Brighton & Hove Albion",
+      "Tottenham Hotspur",
+      "Brentford",
+      "Crystal Palace",
+      "West Ham United",
+      "Bournemouth",
+      "Burnley",
+      "Fulham",
+      "Everton",
+      "Wolverhampton Wanderers",
+      "Nottingham Forest",
+      "Luton Town",
+      "Sheffield United"
+    ];
+
+    const hugoData = [
+      "Arsenal",
+      "Manchester City",
+      "Liverpool",
+      "Chelsea",
+      "Manchester United",
+      "Newcastle United",
+      "Brighton & Hove Albion",
+      "Tottenham Hotspur",
+      "Aston Villa",
+      "Brentford",
+      "Burnley",
+      "Fulham",
+      "West Ham United",
+      "Crystal Palace",
+      "Nottingham Forest",
+      "Everton",
+      "Bournemouth",
+      "Wolverhampton Wanderers",
+      "Luton Town",
+      "Sheffield United"
+    ];
+
+    const createRealTable = async () => {
+      let requestOptions = {
+        'content-type': 'application/json',
+        mode: 'cors',
+        method: 'GET'
+      };
+      const response = await fetch('https://beatthedragon.onrender.com/', requestOptions);
+      var data = await response.json();
+      return Array.from(data);
+    }
+
+    function createTable(data, selector) {
+
+      const tableBody = document.querySelector(selector);
+      tableBody.replaceChildren();
+
+      data.forEach((string, index) => {
+        const newRow = document.createElement("tr");
+        if (index + 1 <= 4) {
+          newRow.classList.add("wpos");
+        } else if (index + 1 >= 18) {
+          newRow.classList.add("lpos");
+        } else {
+          newRow.classList.add("pos");
+        }
+
+        const newDataCell = document.createElement("td");
+        newDataCell.textContent = index + 1;
+
+        const newDataCell2 = document.createElement("td");
+        newDataCell2.textContent = string;
+
+        newRow.appendChild(newDataCell);
+        newRow.appendChild(newDataCell2);
+
+        tableBody.appendChild(newRow);
+      });
+    }
+
+    function evaluateDifference(positionsMap, testSelector) {
+      const testRows = document.querySelectorAll(testSelector);
+
+      testRows.forEach(row => {
+        const name = row.cells[1].textContent;
+        const position = parseInt(row.cells[0].textContent);
+
+        const positionFromRealTable = positionsMap.get(name);
+
+        let difference = 0;
+        if (positionFromRealTable >= position) {
+          difference = positionFromRealTable - position;
+        } else {
+          difference = position - positionFromRealTable;
+        }
+
+        const newCell = document.createElement('td');
+        newCell.textContent = difference;
+        row.appendChild(newCell);
+
+      });
+    }
+
+    function generateRealMap(realSelector) {
+      const positionsMap = new Map();
+      const realRows = document.querySelectorAll(realSelector);
+
+      realRows.forEach(row => {
+        const name = row.cells[1].textContent;
+        const position = parseInt(row.cells[0].textContent);
+        positionsMap.set(name, position);
+      })
+
+      return (positionsMap);
+    }
+
+    function sumColumn(tableSelector, documentSelector) {
+      const rows = document.querySelectorAll(tableSelector);
+      let sum = 0;
+
+      rows.forEach(row => {
+        const cellValue = parseInt(row.cells[2].textContent);
+        sum += cellValue;
+      });
+
+      document.getElementById(documentSelector).innerHTML = "Score: " + sum;
+    }
+
+    async function loadFunction() {
+
+      realData = await createRealTable();
+
+      createTable(realData, "#realTable tbody");
+      createTable(alexData, "#alexTable tbody");
+      createTable(hugoData, "#hugoTable tbody");
+
+      positionsMap = generateRealMap("#realTable tbody tr");
+
+      evaluateDifference(positionsMap, "#alexTable tbody tr");
+      evaluateDifference(positionsMap, "#hugoTable tbody tr");
+
+      sumColumn("#alexTable tbody tr", "alexSum");
+      sumColumn("#hugoTable tbody tr", "hugoSum");
+    }
+
+
+  </script>
+</body>
+
+</html>

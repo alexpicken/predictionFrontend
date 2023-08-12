@@ -1,0 +1,139 @@
+* {
+    font-family: Fjalla One;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    color: white;
+}
+
+body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 35rem;
+    background: url("img/pexels-tbee-82256.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+}
+
+th,
+td {
+    background-color: black;
+    padding: 10px;
+}
+
+th {
+    background-color: black;
+    color: #ffe221;
+}
+
+.headin {
+    text-decoration: none;
+    color: #ffe221;
+    margin: 30px;
+    display: block;
+}
+
+.wpos {
+    text-align: center;
+}
+
+.wpos td {
+    color: #77ff21;
+}
+
+.pos {
+    text-align: center;
+}
+
+.pos td {
+    color: #ff7b21;
+}
+
+.lpos {
+    text-align: center;
+}
+
+.lpos td {
+    color: #ff0000;
+}
+
+table .col {
+    border-bottom: 1px solid #FFFFFF;
+}
+
+.wpos:hover {
+    background-color: #77ff21;
+}
+
+.wpos:hover td {
+    color: #000000;
+}
+
+.pos:hover {
+    background-color: #ff7b21;
+}
+
+.pos:hover td {
+    color: #000000;
+}
+
+.lpos:hover {
+    background-color: #ff0000;;
+}
+
+.lpos:hover td {
+    color: #000000;
+}
+
+.button-19 {
+    appearance: button;
+    background-color: #1899D6;
+    border: solid transparent;
+    border-radius: 16px;
+    border-width: 0 0 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: din-round, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: .8px;
+    line-height: 20px;
+    margin: 0;
+    outline: none;
+    overflow: visible;
+    padding: 13px 16px;
+    text-align: center;
+    text-transform: uppercase;
+    touch-action: manipulation;
+    transform: translateZ(0);
+    transition: filter .2s;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 20%;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.table {
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    width: 30%;
+    /* Adjust the width as needed */
+    margin-right: 10px;
+    /* Add spacing between tables */
+}
