@@ -11,53 +11,73 @@
 </head>
 
 <body onload="loadFunction()">
-  <div class="container">
-    <h1 class="headin">Alex Table</h1>
-    <h1 class="headin">Real Table</h1>
-    <h1 class="headin">Hugo Table</h1>
-  </div>
-  <div class="container">
-    <table id="alexTable">
-      <thead>
-        <tr class="col">
-          <th>Position</th>
-          <th>Team</th>
-          <th>Difference</th>
-        </tr>
-      </thead>
-      <tbody>
-      </tbody>
-    </table>
+<main>
 
+<div>
+  <h1 class="headin">Real Table</h1>
     <table id="realTable">
       <thead>
         <tr class="col">
           <th>Position</th>
-          <th>Team</th>
+          <th class="teamData">Team</th>
         </tr>
       </thead>
       <tbody>
         <!-- Rows will be added here -->
       </tbody>
     </table>
+    <h1 class="hidden"></h1>
+  </div>
 
-    <table id="hugoTable">
+  <div>
+    <h1 class="headin">Alex Table</h1>
+    <table id="alexTable">
       <thead>
         <tr class="col">
           <th>Position</th>
-          <th>Team</th>
+          <th class="teamData">Team</th>
           <th>Difference</th>
         </tr>
       </thead>
       <tbody>
       </tbody>
     </table>
-  </div>
-  <div class="container">
     <h1 class="headin" id="alexSum"></h1>
-    <h1 class="headin"></h1>
+  </div>
+
+  <div>
+    <h1 class="headin">Hugo Table</h1>
+    <table id="hugoTable">
+      <thead>
+        <tr class="col">
+          <th>Position</th>
+          <th class="teamData">Team</th>
+          <th>Difference</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
     <h1 class="headin" id="hugoSum"></h1>
   </div>
+
+  <div>
+    <h1 class="headin">Dragon Table</h1>
+    <table id="dragonTable">
+      <thead>
+        <tr class="col">
+          <th>Position</th>
+          <th class="teamData">Team</th>
+          <th>Difference</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+    <h1 class="headin" id="dragonSum"></h1>
+  </div>
+</main>
+
   <script>
 
     const alexData = [
@@ -102,6 +122,29 @@
       "Everton",
       "Bournemouth",
       "Wolverhampton Wanderers",
+      "Luton Town",
+      "Sheffield United"
+    ];
+
+    const dragonData = [
+      "Manchester City",
+      "Manchester United",
+      "Liverpool",
+      "Newcastle United",
+      "Arsenal",
+      "Chelsea",
+      "Brentford",
+      "Tottenham Hotspur",
+      "Aston Villa",
+      "Burnley",
+      "Crystal Palace",
+      "Brighton & Hove Albion",
+      "Nottingham Forest",
+      "Fulham",
+      "West Ham United",
+      "Wolverhampton Wanderers",
+      "Everton",
+      "Bournemouth",
       "Luton Town",
       "Sheffield United"
     ];
@@ -200,14 +243,17 @@
       createTable(realData, "#realTable tbody");
       createTable(alexData, "#alexTable tbody");
       createTable(hugoData, "#hugoTable tbody");
+      createTable(dragonData, "#dragonTable tbody");
 
       positionsMap = generateRealMap("#realTable tbody tr");
 
       evaluateDifference(positionsMap, "#alexTable tbody tr");
       evaluateDifference(positionsMap, "#hugoTable tbody tr");
+      evaluateDifference(positionsMap, "#dragonTable tbody tr");
 
       sumColumn("#alexTable tbody tr", "alexSum");
       sumColumn("#hugoTable tbody tr", "hugoSum");
+      sumColumn("#dragonTable tbody tr", "dragonSum");
     }
 
 

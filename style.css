@@ -18,10 +18,37 @@ body {
     background-size: cover;
 }
 
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+div {
+    flex-basis: calc(33.33% - 20px); /* Adjust as needed */
+    margin: 10px;
+    padding: 10px;
+    align-items: center; 
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+@media (min-width: 600px) {
+    main {
+        flex-wrap: nowrap;
+    }
+
+    div {
+        flex-basis: 33%;
+    }
+}
+
 th,
 td {
     background-color: black;
     padding: 10px;
+    white-space: nowrap;
 }
 
 th {
@@ -33,7 +60,6 @@ th {
     text-decoration: none;
     color: #ffe221;
     margin: 30px;
-    display: block;
 }
 
 .wpos {
@@ -81,59 +107,10 @@ table .col {
 }
 
 .lpos:hover {
-    background-color: #ff0000;;
+    background-color: #ff0000;
+    ;
 }
 
 .lpos:hover td {
     color: #000000;
-}
-
-.button-19 {
-    appearance: button;
-    background-color: #1899D6;
-    border: solid transparent;
-    border-radius: 16px;
-    border-width: 0 0 4px;
-    box-sizing: border-box;
-    color: #FFFFFF;
-    cursor: pointer;
-    font-family: din-round, sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: .8px;
-    line-height: 20px;
-    margin: 0;
-    outline: none;
-    overflow: visible;
-    padding: 13px 16px;
-    text-align: center;
-    text-transform: uppercase;
-    touch-action: manipulation;
-    transform: translateZ(0);
-    transition: filter .2s;
-    user-select: none;
-    -webkit-user-select: none;
-    vertical-align: middle;
-    white-space: nowrap;
-    width: 20%;
-}
-
-.center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-.container {
-    display: flex;
-    justify-content: space-between;
-}
-
-.table {
-    border-collapse: collapse;
-    border: 1px solid #ddd;
-    width: 30%;
-    /* Adjust the width as needed */
-    margin-right: 10px;
-    /* Add spacing between tables */
 }
