@@ -109,6 +109,23 @@
       <h1 class="headin" id="rorySum"></h1>
     </div>
 
+    <div>
+      <h1 class="headin">Spencer Table</h1>
+      <table id="spencerTable">
+        <thead>
+          <tr class="col">
+            <th>Position</th>
+            <th>Team</th>
+            <th>Difference</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+      <h1 class="headin" id="spencerSum"></h1>
+    </div>
+
+
   </main>
 
   <script>
@@ -228,6 +245,28 @@
       "Sheffield United"
     ];
 
+    const spencerData = [
+      "Manchester City",
+      "Arsenal",
+      "Manchester United",
+      "Chelsea",
+      "Liverpool",
+      "Tottenham Hotspur",
+      "Newcastle United",
+      "Aston Villa",
+      "Brighton & Hove Albion",
+      "West Ham United",
+      "Brentford",
+      "Burnley",
+      "Crystal Palace",
+      "Everton",
+      "Bournemouth",
+      "Nottingham Forest",
+      "Fulham",
+      "Wolverhampton Wanderers",
+      "Sheffield United",
+      "Luton Town",
+    ];
 
     const createRealTable = async () => {
       let requestOptions = {
@@ -325,7 +364,8 @@
       createTable(hugoData, "#hugoTable tbody");
       createTable(dragonData, "#dragonTable tbody");
       createTable(jlaData, "#jlaTable tbody");
-      createTable(jlaData, "#roryTable tbody");
+      createTable(roryData, "#roryTable tbody");
+      createTable(spencerData, "#spencerTable tbody");
 
       positionsMap = generateRealMap("#realTable tbody tr");
 
@@ -334,12 +374,14 @@
       evaluateDifference(positionsMap, "#dragonTable tbody tr");
       evaluateDifference(positionsMap, "#jlaTable tbody tr");
       evaluateDifference(positionsMap, "#roryTable tbody tr");
+      evaluateDifference(positionsMap, "#spencerTable tbody tr");
 
       sumColumn("#alexTable tbody tr", "alexSum");
       sumColumn("#hugoTable tbody tr", "hugoSum");
       sumColumn("#dragonTable tbody tr", "dragonSum");
       sumColumn("#jlaTable tbody tr", "jlaSum");
       sumColumn("#roryTable tbody tr", "rorySum");
+      sumColumn("#spencerTable tbody tr", "spencerSum");
 
     }
 
