@@ -11,10 +11,16 @@ body {
     width: 100%;
     height: 100%;
     min-height: 35rem;
-    background: url("img/pexels-tbee-82256.jpg");
+    background: url("img/G-297.jpeg");
     background-position: center;
-    background-repeat: no-repeat;
+
     background-size: cover;
+}
+
+@media (max-width: 767px) {
+    body {
+        background-size: contain;
+    }
 }
 
 main {
