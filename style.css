@@ -57,9 +57,14 @@ th {
 }
 
 .headin {
+    text-align: center;
     text-decoration: none;
-    color: #ffe221;
+    color:black;
     margin: 30px;
+}
+
+.table-container {
+    text-align: center;
 }
 
 .wpos {
