@@ -154,10 +154,9 @@
       const participants = [
         { name: "Alex", sumSelector: "#alexSum" },
         { name: "Hugo", sumSelector: "#hugoSum" },
-        { name: "Dragon", sumSelector: "#dragonSum" },
         { name: "JLA", sumSelector: "#jlaSum" },
-        { name: "Rory", sumSelector: "#rorySum" },
         { name: "Spencer", sumSelector: "#spencerSum" },
+        { name: "Sidemen", sumSelector: "#sidemenSum" }
       ];
 
       participants.sort((a, b) => {
@@ -206,7 +205,7 @@
     async function loadFunction() {
 
       realData = await createRealTable();
-      const { alexData, hugoData, dragonData, jlaData, roryData, spencerData } = await fetchData();
+      const { alexData, hugoData, jlaData, spencerData, sideMenData } = await fetchData();
 
       // Create the Real Table
       createTable(realData, "#realTable tbody");
@@ -215,10 +214,9 @@
       const dataMap = {
         "Alex": alexData,
         "Hugo": hugoData,
-        "Dragon": dragonData,
         "JLA": jlaData,
-        "Rory": roryData,
         "Spencer": spencerData,
+        "Sidemen": sidemenData
       };
 
       // Generate dynamic sections
