@@ -29,7 +29,7 @@
         </table>
       </div>
     </section>
-    
+
     <section>
       <h2 class="headin">Real Table</h2>
       <div class="table-container">
@@ -48,255 +48,17 @@
       <h2 class="hidden"></h2>
     </section>
 
-    <section>
-      <h2 class="headin">Alex's Table</h2>
-      <div class="table-container">
-        <table id="alexTable">
-          <thead>
-            <tr class="col">
-              <th>Position</th>
-              <th>Team</th>
-              <th>Difference</th>
-            </tr>
-          </thead>
-          <tbody>
-          </tbody>
-        </table>
-      </div>
-      <h2 class="headin" id="alexSum"></h2>
-    </section>
-
-    <section>
-      <h2 class="headin">Hugo's Table</h2>
-      <div class="table-container">
-        <table id="hugoTable">
-          <thead>
-            <tr class="col">
-              <th>Position</th>
-              <th>Team</th>
-              <th>Difference</th>
-            </tr>
-          </thead>
-          <tbody>
-          </tbody>
-        </table>
-      </div>
-      <h2 class="headin" id="hugoSum"></h2>
-    </section>
-
-    <section>
-      <h2 class="headin">Dragon's Table</h2>
-      <div class="table-container">
-        <table id="dragonTable">
-          <thead>
-            <tr class="col">
-              <th>Position</th>
-              <th>Team</th>
-              <th>Difference</th>
-            </tr>
-          </thead>
-          <tbody>
-          </tbody>
-        </table>
-      </div>
-      <h2 class="headin" id="dragonSum"></h2>
-    </section>
-
-    <section>
-      <h2 class="headin">JLA's Table</h2>
-      <div class="table-container">
-        <table id="jlaTable">
-          <thead>
-            <tr class="col">
-              <th>Position</th>
-              <th>Team</th>
-              <th>Difference</th>
-            </tr>
-          </thead>
-          <tbody>
-          </tbody>
-        </table>
-      </div>
-      <h2 class="headin" id="jlaSum"></h2>
-    </section>
-
-    <section>
-      <h2 class="headin">Rory's Table</h2>
-      <div class="table-container">
-        <table id="roryTable">
-          <thead>
-            <tr class="col">
-              <th>Position</th>
-              <th>Team</th>
-              <th>Difference</th>
-            </tr>
-          </thead>
-          <tbody>
-          </tbody>
-        </table>
-      </div>
-      <h2 class="headin" id="rorySum"></h2>
-    </section>
-
-    <section>
-      <h2 class="headin">Spencer's Table</h2>
-      <div class="table-container">
-        <table id="spencerTable">
-          <thead>
-            <tr class="col">
-              <th>Position</th>
-              <th>Team</th>
-              <th>Difference</th>
-            </tr>
-          </thead>
-          <tbody>
-          </tbody>
-        </table>
-      </div>
-      <h2 class="headin" id="spencerSum"></h2>
-    </section>
+    <div id="dynamicSections"></div>
 
   </main>
 
   <script>
 
-    const alexData = [
-      "Liverpool",
-      "Manchester City",
-      "Arsenal",
-      "Manchester United",
-      "Chelsea",
-      "Aston Villa",
-      "Newcastle United",
-      "Brighton & Hove Albion",
-      "Tottenham Hotspur",
-      "Brentford",
-      "Crystal Palace",
-      "West Ham United",
-      "Bournemouth",
-      "Burnley",
-      "Fulham",
-      "Everton",
-      "Wolverhampton Wanderers",
-      "Nottingham Forest",
-      "Luton Town",
-      "Sheffield United"
-    ];
-
-    const hugoData = [
-      "Arsenal",
-      "Manchester City",
-      "Liverpool",
-      "Chelsea",
-      "Manchester United",
-      "Newcastle United",
-      "Brighton & Hove Albion",
-      "Tottenham Hotspur",
-      "Aston Villa",
-      "Brentford",
-      "Burnley",
-      "Fulham",
-      "West Ham United",
-      "Crystal Palace",
-      "Nottingham Forest",
-      "Everton",
-      "Bournemouth",
-      "Wolverhampton Wanderers",
-      "Luton Town",
-      "Sheffield United"
-    ];
-
-    const dragonData = [
-      "Manchester City",
-      "Manchester United",
-      "Liverpool",
-      "Newcastle United",
-      "Arsenal",
-      "Chelsea",
-      "Brentford",
-      "Tottenham Hotspur",
-      "Aston Villa",
-      "Burnley",
-      "Crystal Palace",
-      "Brighton & Hove Albion",
-      "Nottingham Forest",
-      "Fulham",
-      "West Ham United",
-      "Wolverhampton Wanderers",
-      "Everton",
-      "Bournemouth",
-      "Luton Town",
-      "Sheffield United"
-    ];
-
-    const jlaData = [
-      "Manchester City",
-      "Liverpool",
-      "Arsenal",
-      "Manchester United",
-      "Chelsea",
-      "Aston Villa",
-      "Tottenham Hotspur",
-      "Newcastle United",
-      "Brighton & Hove Albion",
-      "West Ham United",
-      "Bournemouth",
-      "Burnley",
-      "Brentford",
-      "Crystal Palace",
-      "Fulham",
-      "Nottingham Forest",
-      "Everton",
-      "Wolverhampton Wanderers",
-      "Luton Town",
-      "Sheffield United"
-    ];
-
-    const roryData = [
-      "Arsenal",
-      "Manchester City",
-      "Liverpool",
-      "Manchester United",
-      "Chelsea",
-      "Aston Villa",
-      "Newcastle United",
-      "Tottenham Hotspur",
-      "Brighton & Hove Albion",
-      "Crystal Palace",
-      "Fulham",
-      "Brentford",
-      "Burnley",
-      "West Ham United",
-      "Wolverhampton Wanderers",
-      "Bournemouth",
-      "Nottingham Forest",
-      "Everton",
-      "Luton Town",
-      "Sheffield United"
-    ];
-
-    const spencerData = [
-      "Manchester City",
-      "Arsenal",
-      "Manchester United",
-      "Chelsea",
-      "Liverpool",
-      "Tottenham Hotspur",
-      "Newcastle United",
-      "Aston Villa",
-      "Brighton & Hove Albion",
-      "West Ham United",
-      "Brentford",
-      "Burnley",
-      "Crystal Palace",
-      "Everton",
-      "Bournemouth",
-      "Nottingham Forest",
-      "Fulham",
-      "Wolverhampton Wanderers",
-      "Sheffield United",
-      "Luton Town",
-    ];
+    async function fetchData() {
+      const response = await fetch('./data.json');
+      const data = await response.json();
+      return data;
+    }
 
     const createRealTable = async () => {
       let requestOptions = {
@@ -419,39 +181,65 @@
       });
     }
 
+    function generateSection(name, tableId, sumId) {
+      return `
+    <section>
+      <h2 class="headin">${name}'s Table</h2>
+      <div class="table-container">
+        <table id="${tableId}">
+          <thead>
+            <tr class="col">
+              <th>Position</th>
+              <th>Team</th>
+              <th>Difference</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+      <h2 class="headin" id="${sumId}"></h2>
+    </section>
+  `;
+    }
+
     async function loadFunction() {
 
       realData = await createRealTable();
+      const { alexData, hugoData, dragonData, jlaData, roryData, spencerData } = await fetchData();
 
+      // Create the Real Table
       createTable(realData, "#realTable tbody");
-      createTable(alexData, "#alexTable tbody");
-      createTable(hugoData, "#hugoTable tbody");
-      createTable(dragonData, "#dragonTable tbody");
-      createTable(jlaData, "#jlaTable tbody");
-      createTable(roryData, "#roryTable tbody");
-      createTable(spencerData, "#spencerTable tbody");
 
-      positionsMap = generateRealMap("#realTable tbody tr");
+      // Data Map
+      const dataMap = {
+        "Alex": alexData,
+        "Hugo": hugoData,
+        "Dragon": dragonData,
+        "JLA": jlaData,
+        "Rory": roryData,
+        "Spencer": spencerData,
+      };
 
-      evaluateDifference(positionsMap, "#alexTable tbody tr");
-      evaluateDifference(positionsMap, "#hugoTable tbody tr");
-      evaluateDifference(positionsMap, "#dragonTable tbody tr");
-      evaluateDifference(positionsMap, "#jlaTable tbody tr");
-      evaluateDifference(positionsMap, "#roryTable tbody tr");
-      evaluateDifference(positionsMap, "#spencerTable tbody tr");
+      // Generate dynamic sections
+      const dynamicSections = document.getElementById("dynamicSections");
+      for (const [name, data] of Object.entries(dataMap)) {
+        const tableId = `${name.toLowerCase()}Table`;
+        const sumId = `${name.toLowerCase()}Sum`;
+        dynamicSections.innerHTML += generateSection(name, tableId, sumId);
+        createTable(data, `#${tableId} tbody`);
+        evaluateDifference(generateRealMap("#realTable tbody tr"), `#${tableId} tbody tr`);
+        sumColumn(`#${tableId} tbody tr`, sumId);
+      }
 
-      sumColumn("#alexTable tbody tr", "alexSum");
-      sumColumn("#hugoTable tbody tr", "hugoSum");
-      sumColumn("#dragonTable tbody tr", "dragonSum");
-      sumColumn("#jlaTable tbody tr", "jlaSum");
-      sumColumn("#roryTable tbody tr", "rorySum");
-      sumColumn("#spencerTable tbody tr", "spencerSum");
-
+      // Update the ranking table after generating all sections
       updateRankingTable();
     }
 
+    window.onload = loadFunction;
 
   </script>
+
 </body>
 
 </html>
