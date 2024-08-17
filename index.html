@@ -156,7 +156,8 @@
         { name: "Hugo", sumSelector: "#hugoSum" },
         { name: "JLA", sumSelector: "#jlaSum" },
         { name: "Spencer", sumSelector: "#spencerSum" },
-        { name: "Sidemen", sumSelector: "#sidemenSum" }
+        { name: "Sidemen", sumSelector: "#sidemenSum" },
+        { name: "Theo", sumSelector: "#theoSum" }
       ];
 
       participants.sort((a, b) => {
@@ -205,7 +206,7 @@
     async function loadFunction() {
 
       realData = await createRealTable();
-      const { alexData, hugoData, jlaData, spencerData, sideMenData } = await fetchData();
+      const { alexData, hugoData, jlaData, spencerData, sidemenData, theoData } = await fetchData();
 
       // Create the Real Table
       createTable(realData, "#realTable tbody");
@@ -216,7 +217,8 @@
         "Hugo": hugoData,
         "JLA": jlaData,
         "Spencer": spencerData,
-        "Sidemen": sidemenData
+        "Sidemen": sidemenData,
+        "Theo": theoData
       };
 
       // Generate dynamic sections
