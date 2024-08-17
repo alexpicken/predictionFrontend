@@ -12,8 +12,9 @@
 
 <body onload="loadFunction()">
   <main>
-
-    <section>
+    <div>
+    <!-- Ranking Table Section -->
+    <section class="table-section">
       <h2 class="headin">Ranking Table</h2>
       <div class="table-container">
         <table id="rankingTable">
@@ -30,7 +31,8 @@
       </div>
     </section>
 
-    <section>
+    <!-- Real Table Section -->
+    <section class="table-section">
       <h2 class="headin">Real Table</h2>
       <div class="table-container">
         <table id="realTable">
@@ -47,13 +49,21 @@
       </div>
       <h2 class="hidden"></h2>
     </section>
+  </div>
 
-    <div id="dynamicSections"></div>
+    <!-- Dynamic Sections -->
+    <div id="dynamicSections" class="table-section"></div>
 
   </main>
 
-  <script>
+  <script src="./script.js"></script>
 
+</body>
+
+</html>
+
+
+  <script>
     async function fetchData() {
       const response = await fetch('./data.json');
       const data = await response.json();
@@ -72,7 +82,6 @@
     }
 
     function createTable(data, selector) {
-
       const tableBody = document.querySelector(selector);
       tableBody.replaceChildren();
 
@@ -118,7 +127,6 @@
         const newCell = document.createElement('td');
         newCell.textContent = difference;
         row.appendChild(newCell);
-
       });
     }
 
@@ -130,9 +138,9 @@
         const name = row.cells[1].textContent;
         const position = parseInt(row.cells[0].textContent);
         positionsMap.set(name, position);
-      })
+      });
 
-      return (positionsMap);
+      return positionsMap;
     }
 
     function sumColumn(tableSelector, documentSelector) {
@@ -183,28 +191,26 @@
 
     function generateSection(name, tableId, sumId) {
       return `
-    <section>
-      <h2 class="headin">${name}'s Table</h2>
-      <div class="table-container">
-        <table id="${tableId}">
-          <thead>
-            <tr class="col">
-              <th>Position</th>
-              <th>Team</th>
-              <th>Difference</th>
-            </tr>
-          </thead>
-          <tbody>
-          </tbody>
-        </table>
-      </div>
-      <h2 class="headin" id="${sumId}"></h2>
-    </section>
-  `;
+        <section>
+          <h2 class="headin">${name}'s Table</h2>
+          <div class="table-container">
+            <table id="${tableId}">
+              <thead>
+                <tr class="col">
+                  <th>Position</th>
+                  <th>Team</th>
+                  <th>Difference</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <h2 class="headin" id="${sumId}"></h2>
+        </section>
+      `;
     }
 
     async function loadFunction() {
-
       realData = await createRealTable();
       const { alexData, hugoData, jlaData, spencerData, sidemenData, theoData } = await fetchData();
 
@@ -237,7 +243,6 @@
     }
 
     window.onload = loadFunction;
-
   </script>
 
 </body>

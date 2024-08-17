@@ -1,3 +1,4 @@
+/* General styling remains unchanged */
 * {
     font-family: Fjalla One;
     margin: 0;
@@ -13,7 +14,6 @@ body {
     min-height: 35rem;
     background: url("img/pexels-mike-fallarme-413195.jpg");
     background-position: center;
-
     background-size: cover;
 }
 
@@ -23,35 +23,41 @@ body {
     }
 }
 
-main {
+#dynamicSections {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    overflow: auto;
+    gap: 20px;
+    margin: 20px 0;
 }
 
-div {
-    flex-basis: calc(33.33% - 20px); /* Adjust as needed */
-    margin: 10px;
-    padding: 10px;
-    align-items: center; 
+section {
+    flex: 1 1 calc(33% - 40px);
+    min-width: 300px;
+    box-sizing: border-box;
+}
+
+.section-content {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.headin, .score {
     text-align: center;
+    color: black;
+    margin: 10px 0;
 }
 
-@media (min-width: 600px) {
-    main {
-        flex-wrap: nowrap;
-    }
-
-    div {
-        flex-basis: 33%;
-    }
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 10px; /* Add margin between table and score */
 }
 
-th,
-td {
+/* Styling for table elements */
+th, td {
     background-color: black;
     padding: 10px;
     white-space: nowrap;
@@ -62,66 +68,15 @@ th {
     color: #ffe221;
 }
 
-.headin {
-    text-align: center;
-    text-decoration: none;
-    color:black;
-    margin: 30px;
-}
+/* Table row styles */
+.wpos td { color: #77ff21; }
+.pos td { color: #ff7b21; }
+.lpos td { color: #ff0000; }
 
-.table-container {
-    text-align: center;
-}
-
-.wpos {
-    text-align: center;
-}
-
-.wpos td {
-    color: #77ff21;
-}
-
-.pos {
-    text-align: center;
-}
-
-.pos td {
-    color: #ff7b21;
-}
-
-.lpos {
-    text-align: center;
-}
-
-.lpos td {
-    color: #ff0000;
-}
-
-table .col {
-    border-bottom: 1px solid #FFFFFF;
-}
-
-.wpos:hover {
-    background-color: #77ff21;
-}
-
-.wpos:hover td {
-    color: #000000;
-}
-
-.pos:hover {
-    background-color: #ff7b21;
-}
-
-.pos:hover td {
-    color: #000000;
-}
-
-.lpos:hover {
-    background-color: #ff0000;
-    ;
-}
-
-.lpos:hover td {
-    color: #000000;
-}
+/* Hover states */
+.wpos:hover { background-color: #77ff21; }
+.wpos:hover td { color: #000000; }
+.pos:hover { background-color: #ff7b21; }
+.pos:hover td { color: #000000; }
+.lpos:hover { background-color: #ff0000; }
+.lpos:hover td { color: #000000; }
