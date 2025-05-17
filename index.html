@@ -211,9 +211,10 @@
     }
 
     async function loadFunction() {
-      realData = await createRealTable();
-      const { alexData, hugoData, jlaData, spencerData, sidemenData, theoData } = await fetchData();
+      const realDataRaw = await createRealTable();
+      const { teamNameMap, alexData, hugoData, jlaData, spencerData, sidemenData, theoData } = await fetchData();
 
+      const realData = realDataRaw.map(name => teamNameMap[name] || name);
       // Create the Real Table
       createTable(realData, "#realTable tbody");
 
